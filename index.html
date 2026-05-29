@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meeting Cost Calculator</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+
+  <header>
+    <div class="tag">Team Productivity Tool</div>
+
+    <h1>
+      Meeting <em>Cost</em> Calculator
+    </h1>
+
+    <p class="sub">
+      Know the real cost before you hit send.
+    </p>
+  </header>
+
+  <!-- MAIN LAYOUT -->
+
+  <div class="layout">
+
+    <!-- ADD PEOPLE -->
+
+    <div class="card">
+
+      <div class="card-title">
+        Add attendees
+      </div>
+
+      <div class="row">
+
+        <div>
+          <label>Name</label>
+
+          <input
+            type="text"
+            id="pname"
+            placeholder="e.g. Priya"
+          />
+        </div>
+
+        <div>
+          <label>Role</label>
+
+          <select id="prole">
+            <option>Junior</option>
+            <option>Mid-level</option>
+            <option selected>Senior</option>
+            <option>Manager</option>
+            <option>Director</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div>
+          <label>Annual CTC</label>
+
+          <input
+            type="number"
+            id="pctc"
+            placeholder="e.g. 1200000"
+          />
+        </div>
+
+      </div>
+
+      <button
+        class="btn btn-dark"
+        onclick="addPerson()"
+      >
+        + Add to meeting
+      </button>
+
+      <div
+        class="people-list"
+        id="people-list"
+      >
+        <div class="empty">
+          No attendees yet.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MEETING SETUP -->
+
+    <div class="card">
+
+      <div class="card-title">
+        Meeting setup
+      </div>
+
+      <div class="row">
+
+        <div>
+          <label>Currency</label>
+
+          <select id="currency">
+            <option value="₹">₹ INR</option>
+            <option value="$">$ USD</option>
+            <option value="€">€ EUR</option>
+            <option value="£">£ GBP</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Duration</label>
+
+          <input
+            type="number"
+            id="duration"
+            value="30"
+            min="1"
+          />
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- COST HERO -->
+
+    <div class="cost-hero full-col">
+
+      <div class="card-title">
+        Total Meeting Cost
+      </div>
+
+      <div
+        class="amount"
+        id="total-cost"
+      >
+        ₹0
+      </div>
+
+      <br />
+
+      <div class="stats">
+
+        <div>
+          <strong id="stat-people">
+            0
+          </strong>
+
+          <div>People</div>
+        </div>
+
+        <div>
+          <strong id="stat-dur">
+            30m
+          </strong>
+
+          <div>Duration</div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- AI ANALYSIS -->
+
+    <div class="card full-col">
+
+      <div class="card-title">
+        AI Meeting Analysis
+      </div>
+
+      <label>
+        Meeting Agenda
+      </label>
+
+      <textarea
+        id="agenda"
+        placeholder="Describe meeting purpose..."
+      ></textarea>
+
+      <button
+        class="btn btn-accent"
+        onclick="analyzeAgenda()"
+      >
+        Analyze with AI
+      </button>
+
+    </div>
+
+    <!-- HISTORY -->
+
+    <div class="card full-col">
+
+      <div class="card-title">
+        Past Meetings
+      </div>
+
+      <div id="history-list">
+
+        <div class="empty">
+          No saved meetings yet.
+        </div>
+
+      </div>
+
+      <br />
+
+      <button
+        class="btn btn-green"
+        onclick="saveMeeting()"
+      >
+        Save Meeting
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="./js/app.js"></script>
+
+</body>
+</html>
